@@ -22,14 +22,14 @@ def getImagemComId():
         id = int(os.path.split(caminhoImagem)[-1].split('.')[1])
         #print(id)
         ids.append(id)
-        faces.append(imagemFace)
+        faces.append(imagemFaceCinza)
 
     return np.array(ids), faces
 
 ids, faces = getImagemComId()
 
 
-print("Treinando...")
+print("Treinando....")
 
 eigenface.train(faces, ids)
 eigenface.write('classificadorEigen.yml')
