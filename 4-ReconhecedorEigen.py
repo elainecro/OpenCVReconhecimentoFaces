@@ -1,6 +1,6 @@
 import cv2
 
-detector = cv2.CascadeClassifier("cascades\\haarcascades-frontalface-default.xml")
+detector = cv2.CascadeClassifier("cascades\\haarcascade-frontalface-default.xml")
 reconhecedor = cv2.face.EigenFaceRecognizer_create()
 reconhecedor.read("classificadorEigen.yml")
 largura, altura = 220, 220
@@ -21,11 +21,11 @@ while (True):
         id, confianca = reconhecedor.predict(imagemFace)
         nome = ""
         if id == 1:
-            nome = 'Jones'
+            nome = 'Elaine'
         elif id == 2:
-            nome = 'Gabriel'
-        cv2.putText(imagem, nome, (x,y +(a+30)), font, 2, (0,0,255))
-        cv2.putText(imagem, str(confianca), (x,y + (a+50)), font, 1, (0,0,255))
+            nome = 'Joana'
+        cv2.putText(imagem, nome, (x,y +(a+30)), fonte, 2, (0,0,255))
+        cv2.putText(imagem, str(confianca), (x,y + (a+50)), fonte, 1, (0,0,255))
 
     cv2.imshow("Face", imagem)
     if cv2.waitKey(1) == ord('q'):
