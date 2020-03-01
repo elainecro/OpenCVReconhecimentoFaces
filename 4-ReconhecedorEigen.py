@@ -19,11 +19,15 @@ while (True):
         cv2.rectangle(imagem, (x,y), (x + l, y + a), (0,0,255), 2)
         
         id, confianca = reconhecedor.predict(imagemFace)
+        
         nome = ""
         if id == 1:
             nome = 'Elaine'
         elif id == 2:
-            nome = 'Joana'
+            nome = 'Vanessa'
+        else:
+            nome = 'Desconhecido'
+            
         cv2.putText(imagem, nome, (x,y +(a+30)), fonte, 2, (0,0,255))
         cv2.putText(imagem, str(confianca), (x,y + (a+50)), fonte, 1, (0,0,255))
 
